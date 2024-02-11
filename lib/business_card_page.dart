@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:professional_profile_app/centered_row.dart';
 
 class BusinessCardPage extends StatelessWidget {
   const BusinessCardPage({super.key});
@@ -6,53 +7,16 @@ class BusinessCardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.all(50.0),
+      padding: EdgeInsets.all(25.0),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [SizedBox(width: 50, height: 50, child: Placeholder())],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Name"),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Title"),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Phone Number"),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Github"),
-              SizedBox(
-                width: 10.0,
-              ),
-              Text("Email"),
-            ],
-          ),
+          CenteredRow(children: [SizedBox(width: 150, height: 150, child: Placeholder())],),
+          CenteredRow(children: [Text("Name")],),
+          CenteredRow(children: [Text("Title")]),
+          CenteredRow(children: [Text("Phone Number")]),
+          CenteredRow(children: [Text("Github"), SizedBox(width: 10.0), Text("Email")]),
         ],
       ),
     );
   }
 }
-
-/*
-NEED:
-photo
-name
-title
-phone
-github email
-
-*/
