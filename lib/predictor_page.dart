@@ -5,6 +5,12 @@ class PredictorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Column(
+      children: [
+        Row(children: [Text("Caption")],),
+        Row(children: [Text("Button")],),
+        Row(children: [Text("Answer")],),
+      ],
+    );
   }
 }
