@@ -79,51 +79,52 @@ class ResponsiveBusinessCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return OrientationBuilder(
       builder: (context, orientation) {
+        if (orientation == Orientation.portrait) {
+          return Padding(
+            padding: EdgeInsets.all(25.0),
+            child: Column(
+              children: [
+                profilePhoto,
+                profileName,
+                currentPosition,
+                phoneContact,
+                CenteredRow(children: [
+                  Column(children: [
+                    github,
+                  ],),
+                    Column(
+                      children: [
+                        email,
+                      ],
+                    ),
+                ],)
+              ],
+            ),
+          );
+        } else {
         return Padding(
-          padding: EdgeInsets.all(25.0),
-          child: Column(
+          padding: EdgeInsets.all(10.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              profilePhoto,
-              profileName,
-              currentPosition,
-              phoneContact,
-              // ProfileName(userProfile: userProfile),
-              // CurrentPosition(userProfile: userProfile),
-              // ContactMethod(
-              //   path: userProfile.phoneNumber,
-              //   scheme: 'sms',
-              //   textLabel: userProfile.phoneNumber,
-              //   urlLauncher: _launchAppWithUrl,
-              //   fontSize: 18,
-              // ),
-              Row(children: [
-                Column(children: [
+              Column(
+                children: [
+                  profileName,
+                  currentPosition,
+                  phoneContact,
                   github,
-                  
-                  // ContactMethod(
-                  //   path: 'github.com/Rudxain/RGB-digital-rain',
-                  //   scheme: 'https',
-                  //   textLabel: userProfile.github,
-                  //   urlLauncher: _launchAppWithUrl,
-                  //   fontSize: 13,
-                  // ),
-                ],),
-                  Column(
-                    children: [
-                      email,
-                      // ContactMethod(
-                      //   path: userProfile.email,
-                      //   scheme: 'mailto',
-                      //   textLabel: userProfile.email,
-                      //   urlLauncher: _launchAppWithUrl,
-                      //   fontSize: 13,
-                      // ),
-                    ],
-                  ),
-              ],)
+                  email
+                ],
+              ),
+              Column(
+                children: [
+                  profilePhoto
+                ],
+              )
             ],
           ),
         );
+        }
       }
     );
   }
