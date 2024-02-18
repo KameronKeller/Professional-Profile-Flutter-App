@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:professional_profile_app/centered_row.dart';
+import 'package:professional_profile_app/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BusinessCardPage extends StatelessWidget {
-  const BusinessCardPage({super.key});
+  const BusinessCardPage({super.key, required this.userProfile});
+
+  final UserProfile userProfile;
+
   final String phoneNumber = "555-555-5555";
 
   // void sendSms() {
@@ -39,21 +43,21 @@ class BusinessCardPage extends StatelessWidget {
           const CenteredRow(children: [SizedBox(width: 200, height: 200, child: Image(
             image: AssetImage('assets/agent_smith.jpg')
           ))],),
-          const CenteredRow(
+          CenteredRow(
             children: [
               Text(
-                "Agent Smith",
-                style: TextStyle(
+                userProfile.name,
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ],
           ),
-          const CenteredRow(children: [
+          CenteredRow(children: [
             Text(
-              "Intelligent AI Program",
-              style: TextStyle(
+              userProfile.currentPosition,
+              style: const TextStyle(
                 fontSize: 18,
               ),
             )
@@ -67,9 +71,9 @@ class BusinessCardPage extends StatelessWidget {
                     scheme: 'sms',
                   );
                 },
-                child: const Text(
-                  "110-0101-1111",
-                  style: TextStyle(
+                child: Text(
+                  userProfile.phoneNumber,
+                  style: const TextStyle(
                     fontSize: 18,
                   ),
                 )
@@ -85,9 +89,9 @@ class BusinessCardPage extends StatelessWidget {
                     scheme: 'https',
                   );
                 },
-                child: const Text(
-                  "github.com/agent_smith",
-                  style: TextStyle(
+                child: Text(
+                  userProfile.github,
+                  style: const TextStyle(
                     fontSize: 12,
                   ),
                 )
@@ -95,13 +99,13 @@ class BusinessCardPage extends StatelessWidget {
             TextButton(
                 onPressed: () {
                   _launchAppWithUrl(
-                    path: "smith@matrix.com",
+                    path: userProfile.email,
                     scheme: 'mailto',
                   );
                 },
-                child: const Text(
-                  "smith@matrix.com",
-                  style: TextStyle(
+                child: Text(
+                  userProfile.email,
+                  style: const TextStyle(
                     fontSize: 12,
                   ),
                 )
