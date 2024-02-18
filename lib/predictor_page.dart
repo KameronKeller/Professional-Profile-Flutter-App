@@ -1,6 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
-class PredictorPage extends StatelessWidget {
 class MagicEightBall {
   List<String> magicEightBallResponses = [
     "Yes, definitely",
@@ -32,15 +33,53 @@ class MagicEightBall {
         random.nextInt(magicEightBallResponses.length)];
   }
 }
+
+class PredictorPage extends StatefulWidget {
   const PredictorPage({super.key});
 
   @override
+  State<PredictorPage> createState() => _PredictorPageState();
+}
+
+class _PredictorPageState extends State<PredictorPage> {
+  // Magic eight ball responses courtesy of ChatGPT
+
+  MagicEightBall magicEightBall = MagicEightBall();
+  String currentResponse = "";
+
+  @override
+  void initState() {
+    super.initState();
+    currentResponse = magicEightBall.getRandomResponse();
+    print(currentResponse);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Row(children: [Text("Caption")],),
-        Row(children: [Text("Button")],),
-        Row(children: [Text("Answer")],),
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text("Call Me... Maybe?")],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+                onPressed: () {
+                  setState(() {
+                    currentResponse = magicEightBall.getRandomResponse();
+                  });
+                },
+                child: const Text("Ask a question... tap for the answer."))
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text(currentResponse)],
+        ),
       ],
     );
   }
