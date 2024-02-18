@@ -8,23 +8,6 @@ class BusinessCardPage extends StatelessWidget {
 
   final UserProfile userProfile;
 
-  final String phoneNumber = "555-555-5555";
-
-  // void sendSms() {
-  //   _launchAppWithUrl(
-  //     scheme: 'sms',
-  //     path: phoneNumber,
-  //   );
-  // }
-
-  // void openPortfolio() {
-  //   _launchAppWithUrl(
-  //     scheme: 'sms',
-  //     path: phoneNumber,
-  //   );
-  // }
-
-
 
   Future<void> _launchAppWithUrl({required String scheme, required String path}) async {
     final Uri launchUri = Uri(
@@ -40,79 +23,172 @@ class BusinessCardPage extends StatelessWidget {
       padding: EdgeInsets.all(25.0),
       child: Column(
         children: [
-          const CenteredRow(children: [SizedBox(width: 200, height: 200, child: Image(
-            image: AssetImage('assets/agent_smith.jpg')
-          ))],),
-          CenteredRow(
-            children: [
-              Text(
-                userProfile.name,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
+          ProfilePhoto(userProfile: userProfile),
+          ProfileName(userProfile: userProfile),
+          CurrentPosition(userProfile: userProfile),
+          ContactMethod(
+            path: userProfile.phoneNumber,
+            scheme: 'sms',
+            textLabel: userProfile.phoneNumber,
+            urlLauncher: _launchAppWithUrl,
+            fontSize: 18,
           ),
-          CenteredRow(children: [
-            Text(
-              userProfile.currentPosition,
-              style: const TextStyle(
-                fontSize: 18,
+          Row(children: [
+            Column(children: [
+              ContactMethod(
+                path: 'github.com/Rudxain/RGB-digital-rain',
+                scheme: 'https',
+                textLabel: userProfile.github,
+                urlLauncher: _launchAppWithUrl,
+                fontSize: 13,
               ),
-            )
-          ]),
-          CenteredRow(
-            children: [
-              TextButton(
-                onPressed: () {
-                  _launchAppWithUrl(
-                    path: phoneNumber,
-                    scheme: 'sms',
-                  );
-                },
-                child: Text(
-                  userProfile.phoneNumber,
-                  style: const TextStyle(
-                    fontSize: 18,
-                  ),
-                )
-              ),
-            ]),
-          CenteredRow(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-            TextButton(
-                onPressed: () {
-                  _launchAppWithUrl(
-                    path: 'github.com/Rudxain/RGB-digital-rain',
-                    scheme: 'https',
-                  );
-                },
-                child: Text(
-                  userProfile.github,
-                  style: const TextStyle(
-                    fontSize: 12,
-                  ),
-                )
-              ),
-            TextButton(
-                onPressed: () {
-                  _launchAppWithUrl(
+            ],),
+              Column(
+                children: [
+                  ContactMethod(
                     path: userProfile.email,
                     scheme: 'mailto',
-                  );
-                },
-                child: Text(
-                  userProfile.email,
-                  style: const TextStyle(
-                    fontSize: 12,
+                    textLabel: userProfile.email,
+                    urlLauncher: _launchAppWithUrl,
+                    fontSize: 13,
                   ),
-                )
+                ],
               ),
-          ]),
+          ],)
         ],
       ),
     );
+  }
+}
+
+class CurrentPosition extends StatelessWidget {
+  const CurrentPosition({
+    super.key,
+    required this.userProfile,
+  });
+
+  final UserProfile userProfile;
+
+  @override
+  Widget build(BuildContext context) {
+    return CenteredRow(children: [
+      Text(
+        userProfile.currentPosition,
+        style: const TextStyle(
+          fontSize: 18,
+        ),
+      )
+    ]);
+  }
+}
+
+class ProfileName extends StatelessWidget {
+  const ProfileName({
+    super.key,
+    required this.userProfile,
+  });
+
+  final UserProfile userProfile;
+
+  @override
+  Widget build(BuildContext context) {
+    return CenteredRow(
+      children: [
+        Text(
+          userProfile.name,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ProfilePhoto extends StatelessWidget {
+  const ProfilePhoto({
+    super.key,
+    required this.userProfile,
+  });
+
+  final UserProfile userProfile;
+
+  @override
+  Widget build(BuildContext context) {
+    return CenteredRow(children: [SizedBox(width: 200, height: 200, child: Image(
+      image: AssetImage(userProfile.profilePhotoPath)
+    ))],);
+  }
+}
+
+
+// class PhoneNumber extends StatelessWidget {
+//   const PhoneNumber({
+//     super.key,
+//     required this.userProfile,
+//     required this.urlLauncher,
+//   });
+  
+//   final UserProfile userProfile;
+//   final Future<void> Function({required String path, required String scheme}) urlLauncher;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return CenteredRow(
+//             children: [
+//               TextButton(
+//                 onPressed: () {
+//                   urlLauncher(
+//                     path: userProfile.phoneNumber,
+//                     scheme: 'sms',
+//                   );
+//                 },
+//                 child: Text(
+//                   userProfile.phoneNumber,
+//                   style: const TextStyle(
+//                     fontSize: 18,
+//                   ),
+//                 )
+//               ),
+//             ]);
+//   }
+// }
+
+class ContactMethod extends StatelessWidget {
+  const ContactMethod({
+    super.key,
+    required this.path,
+    required this.scheme,
+    required this.textLabel,
+    required this.urlLauncher,
+    required this.fontSize,
+  });
+  
+  final String path;
+  final String scheme;
+  final String textLabel;
+  final Future<void> Function({required String path, required String scheme}) urlLauncher;
+  final double fontSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return CenteredRow(
+            children: [
+              TextButton(
+                onPressed: () {
+                  urlLauncher(
+                    path: path,
+                    scheme: scheme,
+                  );
+                },
+                child: Text(
+                  textLabel,
+                  style: TextStyle(
+                    fontSize: fontSize,
+                  ),
+                )
+              ),
+            ]);
   }
 }
