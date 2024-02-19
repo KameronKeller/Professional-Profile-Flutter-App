@@ -11,7 +11,7 @@ List<Map<String, dynamic>> agentSmithResume = [
     "jobTitle": "Field Operative",
     "company": "The Matrix",
     "dates": "1999 - Present",
-    "location": "Various Locations within the Matrix",
+    "location": "The Matrix",
     "description":
         "As a Field Operative, tasked with hunting down and neutralizing human rebels who pose a threat to the stability of the Matrix. Proficient in combat tactics, surveillance, and infiltration techniques. Demonstrates exceptional adaptability and resourcefulness in high-pressure situations."
   },
@@ -43,7 +43,7 @@ List<Map<String, dynamic>> agentSmithResume = [
     "jobTitle": "Field Operative",
     "company": "The Matrix",
     "dates": "1999 - Present",
-    "location": "Various Locations within the Matrix",
+    "location": "The Matrix",
     "description":
         "As a Field Operative, tasked with hunting down and neutralizing human rebels who pose a threat to the stability of the Matrix. Proficient in combat tactics, surveillance, and infiltration techniques. Demonstrates exceptional adaptability and resourcefulness in high-pressure situations."
   },
@@ -76,7 +76,7 @@ List<Map<String, dynamic>> agentSmithResume = [
     "jobTitle": "Field Operative",
     "company": "The Matrix",
     "dates": "1999 - Present",
-    "location": "Various Locations within the Matrix",
+    "location": "The Matrix",
     "description":
         "As a Field Operative, tasked with hunting down and neutralizing human rebels who pose a threat to the stability of the Matrix. Proficient in combat tactics, surveillance, and infiltration techniques. Demonstrates exceptional adaptability and resourcefulness in high-pressure situations."
   },
@@ -108,7 +108,7 @@ List<Map<String, dynamic>> agentSmithResume = [
     "jobTitle": "Field Operative",
     "company": "The Matrix",
     "dates": "1999 - Present",
-    "location": "Various Locations within the Matrix",
+    "location": "The Matrix",
     "description":
         "As a Field Operative, tasked with hunting down and neutralizing human rebels who pose a threat to the stability of the Matrix. Proficient in combat tactics, surveillance, and infiltration techniques. Demonstrates exceptional adaptability and resourcefulness in high-pressure situations."
   },
@@ -140,7 +140,7 @@ List<Map<String, dynamic>> agentSmithResume = [
     "jobTitle": "Field Operative",
     "company": "The Matrix",
     "dates": "1999 - Present",
-    "location": "Various Locations within the Matrix",
+    "location": "The Matrix",
     "description":
         "As a Field Operative, tasked with hunting down and neutralizing human rebels who pose a threat to the stability of the Matrix. Proficient in combat tactics, surveillance, and infiltration techniques. Demonstrates exceptional adaptability and resourcefulness in high-pressure situations."
   },
