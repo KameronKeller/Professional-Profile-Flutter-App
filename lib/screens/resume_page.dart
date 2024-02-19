@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:professional_profile_app/main.dart';
+import 'package:professional_profile_app/models/user_profile.dart';
 import 'package:professional_profile_app/widgets/contact_info.dart';
 import 'package:professional_profile_app/widgets/resume_item.dart';
 import '../data/resume_items.dart';

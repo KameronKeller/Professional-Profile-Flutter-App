@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:professional_profile_app/models/user_profile.dart';
 import 'package:professional_profile_app/widgets/centered_row.dart';
-import 'package:professional_profile_app/main.dart';
 import 'package:professional_profile_app/widgets/contact_method.dart';
 import 'package:professional_profile_app/widgets/current_position.dart';
 import 'package:professional_profile_app/widgets/profile_name.dart';
@@ -11,15 +11,6 @@ class BusinessCardPage extends StatelessWidget {
   const BusinessCardPage({super.key, required this.userProfile});
 
   final UserProfile userProfile;
-
-
-  Future<void> _launchAppWithUrl({required String scheme, required String path}) async {
-    final Uri launchUri = Uri(
-      scheme: scheme,
-      path: path,
-    );
-    await launchUrl(launchUri);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +74,7 @@ class ResponsiveBusinessCard extends StatelessWidget {
       builder: (context, orientation) {
         if (orientation == Orientation.portrait) {
           return Padding(
-            padding: EdgeInsets.all(25.0),
+            padding: const EdgeInsets.all(25.0),
             child: Column(
               children: [
                 profilePhoto,
@@ -105,7 +96,7 @@ class ResponsiveBusinessCard extends StatelessWidget {
           );
         } else {
         return Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

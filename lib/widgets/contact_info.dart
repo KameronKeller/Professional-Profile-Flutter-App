@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:professional_profile_app/main.dart';
+import 'package:professional_profile_app/models/user_profile.dart';
 
 class ContactInfo extends StatelessWidget {
   const ContactInfo({super.key, required this.userProfile});
@@ -16,7 +16,7 @@ class ContactInfo extends StatelessWidget {
       children: [
         Row(
           children: [Text(userProfile.name,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20.0,
           ),)],
@@ -33,7 +33,7 @@ class ContactInfo extends StatelessWidget {
             fontSize: contactInfoFontSize
           ))],
         ),
-        SizedBox(height: 15,)
+        const SizedBox(height: 15,)
       ],
     );
   }

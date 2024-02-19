@@ -22,7 +22,7 @@ class ResumeItem extends StatelessWidget {
         Row(
           children: [
             Text(jobTitle,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16
             ),),
@@ -39,7 +39,7 @@ class ResumeItem extends StatelessWidget {
         Row(
           children: [Expanded(child: Text(jobDescription))],
         ),
-        SizedBox(height: 10.0)
+        const SizedBox(height: 10.0)
       ],
     );
   }

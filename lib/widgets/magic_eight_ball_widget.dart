@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:professional_profile_app/widgets/centered_row.dart';
 import 'package:professional_profile_app/models/magic_eight_ball.dart';
 
-class MagicEightBallWidgetState extends StatefulWidget {
-  const MagicEightBallWidgetState({super.key});
+class MagicEightBallWidget extends StatefulWidget {
+  const MagicEightBallWidget({super.key});
 
   @override
-  State<MagicEightBallWidgetState> createState() =>
-      _MagicEightBallWidgetStateState();
+  State<MagicEightBallWidget> createState() =>
+      _MagicEightBallWidgetState();
 }
 
-class _MagicEightBallWidgetStateState
-    extends State<MagicEightBallWidgetState> {
+class _MagicEightBallWidgetState
+    extends State<MagicEightBallWidget> {
 
   MagicEightBall magicEightBall = MagicEightBall();
   String currentResponse = "";

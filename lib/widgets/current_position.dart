@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:professional_profile_app/models/user_profile.dart';
 import 'package:professional_profile_app/widgets/centered_row.dart';
 import 'package:professional_profile_app/main.dart';
 

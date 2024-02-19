@@ -6,6 +6,6 @@ class PredictorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MagicEightBallWidgetState();
+    return const MagicEightBallWidget();
   }
 }
