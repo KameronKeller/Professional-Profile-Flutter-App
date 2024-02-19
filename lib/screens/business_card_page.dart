@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:professional_profile_app/centered_row.dart';
+import 'package:professional_profile_app/widgets/centered_row.dart';
 import 'package:professional_profile_app/main.dart';
 import 'package:professional_profile_app/widgets/contact_method.dart';
 import 'package:professional_profile_app/widgets/current_position.dart';
@@ -23,7 +23,9 @@ class BusinessCardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveBusinessCard(userProfile: userProfile);
+    return Container(
+      color: Colors.lightGreen[50],
+      child: ResponsiveBusinessCard(userProfile: userProfile));
   }
 }
 
@@ -37,21 +39,21 @@ class ResponsiveBusinessCard extends StatelessWidget {
       scheme: 'sms',
       textLabel: userProfile.phoneNumber,
       urlLauncher: _launchAppWithUrl,
-      fontSize: 18,
+      fontSize: 20,
     );
     github = ContactMethod(
       path: 'github.com/Rudxain/RGB-digital-rain',
       scheme: 'https',
       textLabel: userProfile.github,
       urlLauncher: _launchAppWithUrl,
-      fontSize: 13,
+      fontSize: 19,
     );
     email = ContactMethod(
       path: userProfile.email,
       scheme: 'mailto',
       textLabel: userProfile.email,
       urlLauncher: _launchAppWithUrl,
-      fontSize: 13,
+      fontSize: 19,
     );
   }
 
