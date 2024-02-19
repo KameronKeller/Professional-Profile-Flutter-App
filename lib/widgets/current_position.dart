@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:professional_profile_app/centered_row.dart';
+import 'package:professional_profile_app/widgets/centered_row.dart';
 import 'package:professional_profile_app/main.dart';
 
 class CurrentPosition extends StatelessWidget {
@@ -15,8 +15,9 @@ class CurrentPosition extends StatelessWidget {
     return CenteredRow(children: [
       Text(
         userProfile.currentPosition,
-        style: const TextStyle(
-          fontSize: 18,
+        style: TextStyle(
+          fontFamily: Theme.of(context).textTheme.bodyLarge?.fontFamily,
+          fontSize: 23,
         ),
       )
     ]);

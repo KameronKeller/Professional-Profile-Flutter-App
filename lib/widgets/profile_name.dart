@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:professional_profile_app/centered_row.dart';
+import 'package:professional_profile_app/widgets/centered_row.dart';
 import 'package:professional_profile_app/main.dart';
 
 class ProfileName extends StatelessWidget {
@@ -16,8 +16,9 @@ class ProfileName extends StatelessWidget {
       children: [
         Text(
           userProfile.name,
-          style: const TextStyle(
-            fontSize: 20,
+          style: TextStyle(
+            fontFamily: Theme.of(context).textTheme.bodyLarge?.fontFamily,
+            fontSize: 30,
             fontWeight: FontWeight.bold,
           ),
         ),

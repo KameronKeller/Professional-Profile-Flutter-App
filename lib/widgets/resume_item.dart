@@ -21,10 +21,15 @@ class ResumeItem extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(jobTitle),
+            Text(jobTitle,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16
+            ),),
           ],
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(companyName),
             Text(jobDates),
@@ -34,6 +39,7 @@ class ResumeItem extends StatelessWidget {
         Row(
           children: [Expanded(child: Text(jobDescription))],
         ),
+        SizedBox(height: 10.0)
       ],
     );
   }

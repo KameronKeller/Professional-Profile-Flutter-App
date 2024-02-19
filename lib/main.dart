@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'business_card_page.dart';
-import 'resume_page.dart';
-import 'predictor_page.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'screens/business_card_page.dart';
+import 'screens/resume_page.dart';
+import 'screens/predictor_page.dart';
 
 class UserProfile {
   final String name;
@@ -23,8 +25,24 @@ class UserProfile {
 
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight,
+  ]);
   runApp(const App());
 }
+
+// ThemeData _buildTheme(brightness) {
+//   var baseTheme = ThemeData(brightness: brightness);
+
+//   return baseTheme.copyWith(
+//     textTheme: GoogleFonts.vt323TextTheme(baseTheme.textTheme),
+//   );
+// }
+
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -44,8 +62,9 @@ class App extends StatelessWidget {
       length: 3,
       child: MaterialApp(
         title: 'Call Me Maybe',
+        // theme: _buildTheme(Brightness.light),
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
           useMaterial3: true,
         ),
         home: HomePage(title: 'Call Me Maybe', userProfile: userProfile),
@@ -72,7 +91,11 @@ class _HomePageState extends State<HomePage> {
       appBar: appNavBar(context),
       body: TabBarView(
         children: [
-          BusinessCardPage(userProfile: widget.userProfile),
+          Theme(
+            data: Theme.of(context).copyWith(
+              textTheme: GoogleFonts.vt323TextTheme(Theme.of(context).textTheme),
+            ),
+            child: BusinessCardPage(userProfile: widget.userProfile)),
           ResumePage(userProfile: widget.userProfile),
           PredictorPage(),
       ],)
@@ -85,9 +108,9 @@ class _HomePageState extends State<HomePage> {
       title: Text(widget.title),
       bottom: const TabBar(
         tabs: [
-          Tab(child: Icon(Icons.abc)),
-          Tab(child: Icon(Icons.airline_seat_individual_suite)),
-          Tab(child: Icon(Icons.network_cell))
+          Tab(child: Icon(Icons.person_pin_circle_rounded)),
+          Tab(child: Icon(Icons.description)),
+          Tab(child: Icon(Icons.question_mark))
       ]),
     );
   }
